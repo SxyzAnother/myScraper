@@ -1,0 +1,27 @@
+{
+  "name": "myscraper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SxyzAnother/myScraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SxyzAnother/myScraper/issues"
+  },
+  "homepage": "https://github.com/SxyzAnother/myScraper#readme",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "form-data": "^4.0.2",
+    "fs": "^0.0.1-security"
+  }
+}
