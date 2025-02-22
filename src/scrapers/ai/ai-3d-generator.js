@@ -2,7 +2,7 @@ import axios from "axios";
 
 async function Ai3dGenerator(prompt) {
   try {
-    let { data } = await axios.get(`https://api.artvy.ai:444/image_search?query=${encodeURIComponent(prompt)} t5 Deepart Concept`, {
+    let { data } = await axios.get(`https://api.artvy.ai:444/image_search?query=${encodeURIComponent(prompt + " 3D render, ultra-detailed, cinematic lighting")}`, {
       headers: {
         "Accept": "application/json, text/plain, */*",
         "Content-Type": "application/json",
