@@ -2,14 +2,23 @@ import axios from "axios";
 
 const BASE_URL = "https://chat-gpt.pictures";
 const GENERATE_URL = "/api/generateImage";
+const LIST_MODEL = [
+  "sdxl",
+  "default",
+  "protogen-3.4",
+  "realistic-vision-v13",
+  "dream-shaper-8797",
+  "midjourney"
+];
 
-var payload = (text) => ({
+var payload = (text, model) => ({
   captionInput: text,
-  captionModel: "default"
+  captionModel: LIST_MODEL[model]
 });
 
-async function chatGptPictureCreate(prompt) {
-  let d = payload(prompt);
+async function chatGptPictureCreate(prompt, model = 0) {
+  if (!LIST_MODEL.includes(model)) throw new Error(`Model Tidak Ada! Berikut Model Yang Tersedia ${LIST_MODEL.join(" , ")}`);
+  let d = payload(prompt, model);
   let { data: ss } = await axios.post(BASE_URL + GENERATE_URL, d, {
     headers: {
       "Content-Type": "application/json",
@@ -26,6 +35,6 @@ async function chatGptPictureCreate(prompt) {
   return ss;
 } 
 
-// chatGptPictureCreate("A Girl In Sunset And Snow").then(console.log)
+// chatGptPictureCreate("A Girl In Sunset And Snow", 0).then(console.log)
 
 export { chatGptPictureCreate };
